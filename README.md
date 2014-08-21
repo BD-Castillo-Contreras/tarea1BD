@@ -1,5 +1,5 @@
 tarea 1 BD
 ========
-Integrantes:\n
-Juan Pablo Castillo Vera 201204595-9\n
+Integrantes:
+Juan Pablo Castillo Vera 201204595-9
 Orlando Pablo Contreras Rebolledo 201204760-9
