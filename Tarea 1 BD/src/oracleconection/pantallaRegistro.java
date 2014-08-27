@@ -46,10 +46,8 @@ public class pantallaRegistro extends javax.swing.JFrame {
         registroApellidos = new javax.swing.JTextField();
         registroEdad = new javax.swing.JTextField();
         registroLogin = new javax.swing.JTextField();
-        registroPassword = new javax.swing.JTextField();
-        registroRepitePassword = new javax.swing.JTextField();
-        registrotID = new javax.swing.JLabel();
-        registroID = new javax.swing.JTextField();
+        registroPassword = new javax.swing.JPasswordField();
+        registroRepitePassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,9 +98,9 @@ public class pantallaRegistro extends javax.swing.JFrame {
             }
         });
 
-        registroRepitePassword.addActionListener(new java.awt.event.ActionListener() {
+        registroPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registroRepitePasswordActionPerformed(evt);
+                registroPasswordActionPerformed(evt);
             }
         });
 
@@ -130,16 +128,15 @@ public class pantallaRegistro extends javax.swing.JFrame {
                                 .addGap(29, 29, 29)
                                 .addComponent(registroNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(REGISTROLayout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(registroLogin))
-                    .addGroup(REGISTROLayout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(registroPassword))
-                    .addGroup(REGISTROLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(registrotRepitePassword)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(registroRepitePassword)))
+                        .addComponent(registroRepitePassword))
+                    .addGroup(REGISTROLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addGroup(REGISTROLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(registroLogin)
+                            .addComponent(registroPassword))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, REGISTROLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -173,39 +170,24 @@ public class pantallaRegistro extends javax.swing.JFrame {
                     .addComponent(registrotUsuario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(REGISTROLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(registroPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(registrotPassword))
+                    .addComponent(registrotPassword)
+                    .addComponent(registroPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(REGISTROLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(registroRepitePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(registrotRepitePassword))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                    .addComponent(registrotRepitePassword)
+                    .addComponent(registroRepitePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(registroBotonAceptar)
                 .addContainerGap())
         );
-
-        registrotID.setText("ID:");
-
-        registroID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registroIDActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(REGISTRO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(registrotID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(registroID, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(90, 90, 90)
+                .addComponent(REGISTRO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -213,11 +195,7 @@ public class pantallaRegistro extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(REGISTRO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(registrotID)
-                    .addComponent(registroID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
@@ -231,10 +209,6 @@ public class pantallaRegistro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_registroLoginActionPerformed
 
-    private void registroRepitePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroRepitePasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registroRepitePasswordActionPerformed
-
     private void registroEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroEdadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_registroEdadActionPerformed
@@ -242,13 +216,13 @@ public class pantallaRegistro extends javax.swing.JFrame {
     private void registroBotonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroBotonAceptarActionPerformed
         // TODO add your handling code here:
         try {
-           
+                               
            if(registroPassword.getText().equals(registroRepitePassword.getText())){
-               
+                
                 conn = Main.Enlace(conn);
                 String sqlinsertar = "insert into usuario values (?,?,?,?,?,?,?,?)";
                 PreparedStatement psta = conn.prepareStatement(sqlinsertar);
-                psta.setString(1, registroID.getText());
+                psta.setString(1, null);
                 psta.setString(2, registroNombre.getText());
                 psta.setString(3, registroApellidos.getText());
                 psta.setString(4, registroEdad.getText());
@@ -275,9 +249,9 @@ public class pantallaRegistro extends javax.swing.JFrame {
 
     }//GEN-LAST:event_registroBotonAceptarActionPerformed
 
-    private void registroIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroIDActionPerformed
+    private void registroPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_registroIDActionPerformed
+    }//GEN-LAST:event_registroPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -319,15 +293,13 @@ public class pantallaRegistro extends javax.swing.JFrame {
     private javax.swing.JTextField registroApellidos;
     private javax.swing.JButton registroBotonAceptar;
     private javax.swing.JTextField registroEdad;
-    private javax.swing.JTextField registroID;
     private javax.swing.JTextField registroLogin;
     private javax.swing.JTextField registroNombre;
-    private javax.swing.JTextField registroPassword;
-    private javax.swing.JTextField registroRepitePassword;
+    private javax.swing.JPasswordField registroPassword;
+    private javax.swing.JPasswordField registroRepitePassword;
     private javax.swing.JLabel registroTitulo;
     private javax.swing.JLabel registrotApellidos;
     private javax.swing.JLabel registrotEdad;
-    private javax.swing.JLabel registrotID;
     private javax.swing.JLabel registrotNombre;
     private javax.swing.JLabel registrotPassword;
     private javax.swing.JLabel registrotRepitePassword;

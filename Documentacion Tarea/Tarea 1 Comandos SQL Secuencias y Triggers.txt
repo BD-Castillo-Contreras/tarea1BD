@@ -1,0 +1,25 @@
+create sequence idusuario_secuencia
+start with 1 
+increment by 1 
+nomaxvalue; 
+
+create trigger incrementoidusuario_trigger
+before insert on usuario
+for each row
+begin
+select idusuario_secuencia.nextval into :new.idusuario from dual;
+end;
+/
+
+create sequence idartista_secuencia
+start with 1 
+increment by 1 
+nomaxvalue; 
+
+create trigger incrementoidartista_trigger
+before insert on artista
+for each row
+begin
+select idartista_secuencia.nextval into :new.idartista from dual;
+end;
+/

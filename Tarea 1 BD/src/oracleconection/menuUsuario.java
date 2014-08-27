@@ -28,83 +28,88 @@ public class menuUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        MENÚ = new javax.swing.JPanel();
+        menuTitulo = new javax.swing.JLabel();
+        menuTexto = new javax.swing.JLabel();
+        menuIngresarArtista = new javax.swing.JButton();
+        menuIngresarDisco = new javax.swing.JButton();
+        menuIngresarCanciones = new javax.swing.JButton();
+        menuEditarMusica = new javax.swing.JButton();
+        menuExplorar = new javax.swing.JButton();
+        menuRankings = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Bienvenido a la Red Social de Musica!");
+        menuTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        menuTitulo.setText("Bienvenido a la Red Social de Musica!");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Elija lo que quiera hacer:");
+        menuTexto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        menuTexto.setText("Elija lo que quiera hacer:");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Ingresar Artista");
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("Ingresar Disco");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        menuIngresarArtista.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        menuIngresarArtista.setText("Ingresar Artista");
+        menuIngresarArtista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                menuIngresarArtistaActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton3.setText("Ingresar Canciones");
+        menuIngresarDisco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        menuIngresarDisco.setText("Ingresar Disco");
+        menuIngresarDisco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuIngresarDiscoActionPerformed(evt);
+            }
+        });
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton4.setText("Editar mi musica");
+        menuIngresarCanciones.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        menuIngresarCanciones.setText("Ingresar Canciones");
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton5.setText("Explorar");
+        menuEditarMusica.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        menuEditarMusica.setText("Editar mi musica");
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton6.setText("Rankings");
+        menuExplorar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        menuExplorar.setText("Explorar");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        menuRankings.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        menuRankings.setText("Rankings");
+
+        javax.swing.GroupLayout MENÚLayout = new javax.swing.GroupLayout(MENÚ);
+        MENÚ.setLayout(MENÚLayout);
+        MENÚLayout.setHorizontalGroup(
+            MENÚLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MENÚLayout.createSequentialGroup()
                 .addGap(90, 90, 90)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(MENÚLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(menuTitulo)
+                    .addComponent(menuTexto)
+                    .addComponent(menuIngresarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menuIngresarDisco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menuIngresarCanciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menuEditarMusica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menuExplorar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menuRankings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        MENÚLayout.setVerticalGroup(
+            MENÚLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MENÚLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel1)
+                .addComponent(menuTitulo)
                 .addGap(15, 15, 15)
-                .addComponent(jLabel3)
+                .addComponent(menuTexto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(menuIngresarArtista)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(menuIngresarDisco)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(menuIngresarCanciones)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
+                .addComponent(menuEditarMusica)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
+                .addComponent(menuExplorar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
+                .addComponent(menuRankings)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -114,23 +119,32 @@ public class menuUsuario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(MENÚ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(MENÚ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void menuIngresarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIngresarDiscoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_menuIngresarDiscoActionPerformed
+
+    private void menuIngresarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIngresarArtistaActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        pantallaIngresarArtista pIngresarArtista = new pantallaIngresarArtista();
+        pIngresarArtista.setVisible(true);
+        pIngresarArtista.pack();
+        dispose();
+    }//GEN-LAST:event_menuIngresarArtistaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,14 +182,14 @@ public class menuUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel MENÚ;
+    private javax.swing.JButton menuEditarMusica;
+    private javax.swing.JButton menuExplorar;
+    private javax.swing.JButton menuIngresarArtista;
+    private javax.swing.JButton menuIngresarCanciones;
+    private javax.swing.JButton menuIngresarDisco;
+    private javax.swing.JButton menuRankings;
+    private javax.swing.JLabel menuTexto;
+    private javax.swing.JLabel menuTitulo;
     // End of variables declaration//GEN-END:variables
 }
