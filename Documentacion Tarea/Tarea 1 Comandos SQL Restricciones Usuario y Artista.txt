@@ -1,0 +1,5 @@
+ALTER TABLE Usuario
+ADD UNIQUE (login)
+
+ALTER TABLE Artista
+ADD CONSTRAINT nombrenacionalidad_artista UNIQUE (nombre,nacionalidad)
