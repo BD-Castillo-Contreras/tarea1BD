@@ -8,12 +8,7 @@ package oracleconection;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author JP
- */
 public class pantallaRegistro extends javax.swing.JFrame {
     
     static Connection conn=null;
@@ -241,10 +236,11 @@ public class pantallaRegistro extends javax.swing.JFrame {
                 pInicio.pack();
                 dispose();}
            
-           else{JOptionPane.showMessageDialog(this,"La password que ingreso no es valida");}
+           else{JOptionPane.showMessageDialog(this,"La password que ingreso no es valida.");}
            
         }catch (Exception e){
             System.out.println(e.getCause());
+            JOptionPane.showMessageDialog(this,"Usuario ya existe, porfavor modifique el nombre de usuario para completar el registro.");
         }
 
     }//GEN-LAST:event_registroBotonAceptarActionPerformed

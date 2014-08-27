@@ -6,16 +6,14 @@
 
 package oracleconection;
 
-import java.io.*;
 import java.sql.*;
 import javax.swing.*;
+import static oracleconection.pantallaRegistro.conn;
 
 public class pantallaInicio extends javax.swing.JFrame {
     
      static Connection conn=null;
-     static Statement s=null;
-     static ResultSet rs=null;
-
+     
     /**
      * Creates new form pantallaInicio
      */
@@ -156,11 +154,24 @@ public class pantallaInicio extends javax.swing.JFrame {
 
     private void inicioBotonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioBotonEntrarActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        menuUsuario pUsuario   = new menuUsuario();
-        pUsuario.setVisible(true);
-        pUsuario.pack();
-        dispose();
+        try{    
+                
+                
+                System.out.println(inicioLogin.getText());
+                System.out.println(inicioPassword.getText());
+                
+                JOptionPane.showMessageDialog(this,"Bienvenido!");
+                this.setVisible(false);
+                menuUsuario pUsuario = new menuUsuario();
+                pUsuario.setVisible(true);
+                pUsuario.pack();
+                dispose();
+            
+        }catch (Exception e){
+            System.out.println(e.getCause());
+            JOptionPane.showMessageDialog(this,"Datos mal ingresados");
+        }
+        
     }//GEN-LAST:event_inicioBotonEntrarActionPerformed
 
     private void inicioBotonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioBotonRegistroActionPerformed

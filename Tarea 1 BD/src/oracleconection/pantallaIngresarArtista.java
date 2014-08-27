@@ -182,6 +182,7 @@ public class pantallaIngresarArtista extends javax.swing.JFrame {
             
         }catch (Exception e){
             System.out.println(e.getCause());
+            JOptionPane.showMessageDialog(this,"Nombre y nacionalidad del artista ya existe, porfavor corrija esto para ingresar el artista.");
         }
         
     }//GEN-LAST:event_artistaBotonAceptarActionPerformed
