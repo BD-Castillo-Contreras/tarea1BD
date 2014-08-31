@@ -23,3 +23,16 @@ begin
 select idartista_secuencia.nextval into :new.idartista from dual;
 end;
 /
+
+create sequence idsigue_secuencia
+start with 1 
+increment by 1 
+nomaxvalue; 
+
+create trigger incrementoidsigue_trigger
+before insert on sigue
+for each row
+begin
+select idsigue_secuencia.nextval into :new.idsigue from dual;
+end;
+/
