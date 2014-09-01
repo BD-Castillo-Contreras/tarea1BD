@@ -23,7 +23,64 @@ public class pantallaIngresarArtista extends javax.swing.JFrame {
     public pantallaIngresarArtista() {
         initComponents();
     }
+    
+    public class funcionalidad { 
+        private Connection conexion; 
 
+        public Connection getConexion() { 
+            return conexion; 
+        }    public void setConexion(Connection conexion) { 
+            this.conexion = conexion; 
+        }  
+
+
+
+public funcionalidad conectar() { 
+    try { 
+        Class.forName("oracle.jdbc.OracleDriver"); 
+        String BaseDeDatos = "jdbc:oracle:thin:@localhost:1521:XE"; 
+          
+        conexion = DriverManager.getConnection(BaseDeDatos, "TAREA1BD","marti");             
+        if (conexion != null) { 
+            System.out.println("Conexion exitosa!"); 
+        } else { 
+            System.out.println("Conexion fallida!"); 
+        } 
+    } catch (Exception e) { 
+        e.printStackTrace(); 
+    }        return this; 
+} 
+
+public boolean escribir(String sql) { 
+        try { 
+            Statement sentencia; 
+            sentencia = getConexion().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY); 
+            sentencia.executeUpdate(sql); 
+            getConexion().commit(); 
+            sentencia.close(); 
+             
+        } catch (SQLException e) { 
+            e.printStackTrace(); 
+            System.out.print("ERROR SQL"); 
+            return false; 
+        }         
+        return true; 
+    } 
+
+public ResultSet consultar(String sql) { 
+        ResultSet resultado = null; 
+        try { 
+            Statement sentencia; 
+            sentencia = getConexion().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY); 
+            resultado = sentencia.executeQuery(sql); 
+             
+        } catch (SQLException e) { 
+            e.printStackTrace(); 
+            return null; 
+        }        return resultado; 
+    } 
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,6 +101,9 @@ public class pantallaIngresarArtista extends javax.swing.JFrame {
         artistaGenero = new javax.swing.JTextField();
         artistaUrl_foto = new javax.swing.JTextField();
         artistaBotonAceptar = new javax.swing.JButton();
+        artistatUsuario = new javax.swing.JLabel();
+        artistaUsuario = new javax.swing.JTextField();
+        artistaBotonSeguir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,23 +136,38 @@ public class pantallaIngresarArtista extends javax.swing.JFrame {
             }
         });
 
+        artistatUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        artistatUsuario.setText("Nombre Usuario Logeado:");
+
+        artistaBotonSeguir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        artistaBotonSeguir.setText("Seguir Artista");
+        artistaBotonSeguir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                artistaBotonSeguirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ARTISTALayout = new javax.swing.GroupLayout(ARTISTA);
         ARTISTA.setLayout(ARTISTALayout);
         ARTISTALayout.setHorizontalGroup(
             ARTISTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ARTISTALayout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addGroup(ARTISTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(artistaTitulo)
+                .addGroup(ARTISTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ARTISTALayout.createSequentialGroup()
+                        .addComponent(artistatUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(artistaUsuario))
+                    .addComponent(artistaTitulo, javax.swing.GroupLayout.Alignment.CENTER)
+                    .addGroup(javax.swing.GroupLayout.Alignment.CENTER, ARTISTALayout.createSequentialGroup()
                         .addComponent(artistatNombre)
                         .addGap(51, 51, 51)
                         .addComponent(artistaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ARTISTALayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.CENTER, ARTISTALayout.createSequentialGroup()
                         .addComponent(artistatNacionalidad)
                         .addGap(25, 25, 25)
                         .addComponent(artistaNacionalidad))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ARTISTALayout.createSequentialGroup()
+                    .addGroup(ARTISTALayout.createSequentialGroup()
                         .addGroup(ARTISTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(artistatGenero)
                             .addComponent(artistatUrl_foto))
@@ -102,8 +177,13 @@ public class pantallaIngresarArtista extends javax.swing.JFrame {
                             .addComponent(artistaUrl_foto))))
                 .addGap(70, 70, 70))
             .addGroup(ARTISTALayout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addComponent(artistaBotonAceptar)
+                .addGroup(ARTISTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ARTISTALayout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(artistaBotonAceptar))
+                    .addGroup(ARTISTALayout.createSequentialGroup()
+                        .addGap(127, 127, 127)
+                        .addComponent(artistaBotonSeguir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ARTISTALayout.setVerticalGroup(
@@ -129,7 +209,13 @@ public class pantallaIngresarArtista extends javax.swing.JFrame {
                     .addComponent(artistaUrl_foto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(artistaBotonAceptar)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(ARTISTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(artistatUsuario)
+                    .addComponent(artistaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(artistaBotonSeguir)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -172,20 +258,83 @@ public class pantallaIngresarArtista extends javax.swing.JFrame {
             psta.execute();
             psta.close();
             
-            JOptionPane.showMessageDialog(this,"Artista ingresado exitosamente!");
+            funcionalidad fArtista = new funcionalidad(); 
+            fArtista.conectar(); 
+            ResultSet idUsuario = fArtista.consultar("select idusuario from usuario where login='"+artistaUsuario.getText()+"'");
+            idUsuario.next();
             
-            this.setVisible(false);
-            menuUsuario pMenuUsuario = new menuUsuario();
-            pMenuUsuario.setVisible(true);
-            pMenuUsuario.pack();
-            dispose();
+            
+            ResultSet idArtista = fArtista.consultar("select idartista from artista where nombre='"+artistaNombre.getText()+"' and nacionalidad='"+artistaNacionalidad.getText()+"'");
+            idArtista.next();
+            
+            
+            String sqlinsertar_sigue = "insert into sigue values (?,?,?,?,?)";
+            PreparedStatement insercion = conn.prepareStatement(sqlinsertar_sigue);
+            insercion.setString(1, null);
+            insercion.setString(2, idUsuario.getString(1));
+            insercion.setString(3, idArtista.getString(1));
+            insercion.setString(4, null);
+            insercion.setString(5, null);
+            insercion.execute();
+            insercion.close();
+            
+            idUsuario.close();
+            idArtista.close();
+            
+            JOptionPane.showMessageDialog(this,"Artista ingresado exitosamente!");
+                       
+                this.setVisible(false);
+                menuUsuario pMenuUsuario = new menuUsuario();
+                pMenuUsuario.setVisible(true);
+                pMenuUsuario.pack();
+                dispose();
             
         }catch (Exception e){
             System.out.println(e.getCause());
-            JOptionPane.showMessageDialog(this,"Nombre y nacionalidad del artista ya existe, porfavor corrija esto para ingresar el artista.");
+            JOptionPane.showMessageDialog(this,"Nombre y nacionalidad del artista ya existe, porfavor elija la opcion Seguir Artista.");
         }
         
     }//GEN-LAST:event_artistaBotonAceptarActionPerformed
+
+    private void artistaBotonSeguirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_artistaBotonSeguirActionPerformed
+        // TODO add your handling code here:
+        try{
+            
+            funcionalidad fArtista = new funcionalidad(); 
+            fArtista.conectar(); 
+            ResultSet idUsuario = fArtista.consultar("select idusuario from usuario where login='"+artistaUsuario.getText()+"'");
+            idUsuario.next();
+                        
+            ResultSet idArtista = fArtista.consultar("select idartista from artista where nombre='"+artistaNombre.getText()+"' and nacionalidad='"+artistaNacionalidad.getText()+"'");
+            idArtista.next();
+                        
+            conn = Main.Enlace(conn);
+            String sqlinsertar_sigue = "insert into sigue values (?,?,?,?,?)";
+            PreparedStatement insercion = conn.prepareStatement(sqlinsertar_sigue);
+            insercion.setString(1, null);
+            insercion.setString(2, idUsuario.getString(1));
+            insercion.setString(3, idArtista.getString(1));
+            insercion.setString(4, null);
+            insercion.setString(5, null);
+            insercion.execute();
+            insercion.close();
+            
+            idUsuario.close();
+            idArtista.close();
+            
+            JOptionPane.showMessageDialog(this,"Artista seguido exitosamente!");
+            
+            this.setVisible(false);
+                menuUsuario pMenuUsuario = new menuUsuario();
+                pMenuUsuario.setVisible(true);
+                pMenuUsuario.pack();
+                dispose();
+                
+        }catch (Exception e){
+            System.out.println(e.getCause());
+            JOptionPane.showMessageDialog(this,"Este artista no existe, porfavor elija la opcion Aceptar");
+        }   
+    }//GEN-LAST:event_artistaBotonSeguirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,14 +374,17 @@ public class pantallaIngresarArtista extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ARTISTA;
     private javax.swing.JButton artistaBotonAceptar;
+    private javax.swing.JButton artistaBotonSeguir;
     private javax.swing.JTextField artistaGenero;
     private javax.swing.JTextField artistaNacionalidad;
     private javax.swing.JTextField artistaNombre;
     private javax.swing.JLabel artistaTitulo;
     private javax.swing.JTextField artistaUrl_foto;
+    private javax.swing.JTextField artistaUsuario;
     private javax.swing.JLabel artistatGenero;
     private javax.swing.JLabel artistatNacionalidad;
     private javax.swing.JLabel artistatNombre;
     private javax.swing.JLabel artistatUrl_foto;
+    private javax.swing.JLabel artistatUsuario;
     // End of variables declaration//GEN-END:variables
 }

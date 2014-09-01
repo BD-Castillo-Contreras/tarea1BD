@@ -8,7 +8,6 @@ package oracleconection;
 
 import java.sql.*;
 import javax.swing.*;
-import static oracleconection.pantallaRegistro.conn;
 
 public class pantallaInicio extends javax.swing.JFrame {
     
@@ -20,7 +19,64 @@ public class pantallaInicio extends javax.swing.JFrame {
     public pantallaInicio() {
         initComponents();
     }
+    
+public class funcionalidad { 
+        private Connection conexion; 
 
+        public Connection getConexion() { 
+            return conexion; 
+        }    public void setConexion(Connection conexion) { 
+            this.conexion = conexion; 
+        }  
+
+
+
+public funcionalidad conectar() { 
+    try { 
+        Class.forName("oracle.jdbc.OracleDriver"); 
+        String BaseDeDatos = "jdbc:oracle:thin:@localhost:1521:XE"; 
+          
+        conexion = DriverManager.getConnection(BaseDeDatos, "TAREA1BD","marti");             
+        if (conexion != null) { 
+            System.out.println("Conexion exitosa!"); 
+        } else { 
+            System.out.println("Conexion fallida!"); 
+        } 
+    } catch (Exception e) { 
+        e.printStackTrace(); 
+    }        return this; 
+} 
+
+public boolean escribir(String sql) { 
+        try { 
+            Statement sentencia; 
+            sentencia = getConexion().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY); 
+            sentencia.executeUpdate(sql); 
+            getConexion().commit(); 
+            sentencia.close(); 
+             
+        } catch (SQLException e) { 
+            e.printStackTrace(); 
+            System.out.print("ERROR SQL"); 
+            return false; 
+        }         
+        return true; 
+    } 
+
+public ResultSet consultar(String sql) { 
+        ResultSet resultado = null; 
+        try { 
+            Statement sentencia; 
+            sentencia = getConexion().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY); 
+            resultado = sentencia.executeQuery(sql); 
+             
+        } catch (SQLException e) { 
+            e.printStackTrace(); 
+            return null; 
+        }        return resultado; 
+    } 
+
+    }  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -155,21 +211,32 @@ public class pantallaInicio extends javax.swing.JFrame {
     private void inicioBotonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioBotonEntrarActionPerformed
         // TODO add your handling code here:
         try{    
-                
-                
-                System.out.println(inicioLogin.getText());
-                System.out.println(inicioPassword.getText());
-                
-                JOptionPane.showMessageDialog(this,"Bienvenido!");
-                this.setVisible(false);
-                menuUsuario pUsuario = new menuUsuario();
-                pUsuario.setVisible(true);
-                pUsuario.pack();
-                dispose();
-            
+                funcionalidad f = new funcionalidad(); 
+                f.conectar(); 
+                ResultSet login = f.consultar("select login from usuario where login='"+inicioLogin.getText()+"'");
+                login.next();
+                               
+                if(inicioLogin.getText().equals(login.getObject(1))){
+                    
+                    login.close();
+                    ResultSet clave = f.consultar("select password from usuario where password='"+inicioPassword.getText()+"'");
+                    clave.next();
+                    
+                    if(inicioPassword.getText().equals(clave.getObject(1))){
+                        
+                        clave.close();
+                        JOptionPane.showMessageDialog(this,"Bienvenido!");
+                        this.setVisible(false);
+                        menuUsuario pUsuario = new menuUsuario();
+                        pUsuario.setVisible(true);
+                        pUsuario.pack();
+                        dispose();
+                    }
+                                        
+                }    
         }catch (Exception e){
             System.out.println(e.getCause());
-            JOptionPane.showMessageDialog(this,"Datos mal ingresados");
+            JOptionPane.showMessageDialog(this,"Usuario no existe o clave erronea!");
         }
         
     }//GEN-LAST:event_inicioBotonEntrarActionPerformed
