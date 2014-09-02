@@ -1,0 +1,51 @@
+create sequence idusuario_secuencia
+start with 1 
+increment by 1 
+nomaxvalue; 
+
+create trigger incrementoidusuario_trigger
+before insert on usuario
+for each row
+begin
+select idusuario_secuencia.nextval into :new.idusuario from dual;
+end;
+/
+
+create sequence idartista_secuencia
+start with 1 
+increment by 1 
+nomaxvalue; 
+
+create trigger incrementoidartista_trigger
+before insert on artista
+for each row
+begin
+select idartista_secuencia.nextval into :new.idartista from dual;
+end;
+/
+
+create sequence idsigue_secuencia
+start with 1 
+increment by 1 
+nomaxvalue; 
+
+create trigger incrementoidsigue_trigger
+before insert on sigue
+for each row
+begin
+select idsigue_secuencia.nextval into :new.idsigue from dual;
+end;
+/
+
+create sequence iddisco_secuencia
+start with 1 
+increment by 1 
+nomaxvalue;
+
+create trigger incrementoiddisco_trigger
+before insert on disco
+for each row
+begin
+select iddisco_secuencia.nextval into :new.iddisco from dual;
+end;
+/  
