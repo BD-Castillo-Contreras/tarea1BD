@@ -6,6 +6,7 @@
 
 package oracleconection;
 
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.sql.*;
 import javax.swing.*;
 
@@ -224,8 +225,8 @@ public ResultSet consultar(String sql) {
                     
                     if(inicioPassword.getText().equals(clave.getObject(1))){
                         
-                        clave.close();
-                        JOptionPane.showMessageDialog(this,"Bienvenido!");
+                        clave.close();                                                                       
+                        JOptionPane.showMessageDialog(this,"Bienvenido "+inicioLogin.getText()+" a la Red Social de Música!");
                         this.setVisible(false);
                         menuUsuario pUsuario = new menuUsuario();
                         pUsuario.setVisible(true);

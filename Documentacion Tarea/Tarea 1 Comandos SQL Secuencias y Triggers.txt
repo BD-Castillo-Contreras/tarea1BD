@@ -36,3 +36,16 @@ begin
 select idsigue_secuencia.nextval into :new.idsigue from dual;
 end;
 /
+
+create sequence iddisco_secuencia
+start with 1 
+increment by 1 
+nomaxvalue;
+
+create trigger incrementoiddisco_trigger
+before insert on disco
+for each row
+begin
+select iddisco_secuencia.nextval into :new.iddisco from dual;
+end;
+/  

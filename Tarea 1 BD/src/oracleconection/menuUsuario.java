@@ -135,6 +135,11 @@ public class menuUsuario extends javax.swing.JFrame {
 
     private void menuIngresarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIngresarDiscoActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        pantallaElegirArtista pElegirArtista = new pantallaElegirArtista();
+        pElegirArtista.setVisible(true);
+        pElegirArtista.pack();
+        dispose();
     }//GEN-LAST:event_menuIngresarDiscoActionPerformed
 
     private void menuIngresarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIngresarArtistaActionPerformed
