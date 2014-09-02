@@ -249,7 +249,7 @@ public ResultSet consultar(String sql) {
             
             funcionalidad fArtista = new funcionalidad(); 
             fArtista.conectar(); 
-            ResultSet idUsuario = fArtista.consultar("select idusuario from usuario where login='"+artistaUsuario.getText()+"'");
+            ResultSet idUsuario = fArtista.consultar("select idusuario from usuario where login='"+pantallaInicio.SesionActual.login+"'");
             idUsuario.next();
             
             
