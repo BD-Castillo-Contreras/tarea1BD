@@ -9,6 +9,8 @@ package oracleconection;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
+
+
 /**
  *
  * @author JP
@@ -100,7 +102,6 @@ public ResultSet consultar(String sql) {
         artistaGenero = new javax.swing.JTextField();
         artistaUrl_foto = new javax.swing.JTextField();
         artistaBotonAceptar = new javax.swing.JButton();
-        artistaBotonSeguir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,14 +134,6 @@ public ResultSet consultar(String sql) {
             }
         });
 
-        artistaBotonSeguir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        artistaBotonSeguir.setText("Seguir Artista");
-        artistaBotonSeguir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                artistaBotonSeguirActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout ARTISTALayout = new javax.swing.GroupLayout(ARTISTA);
         ARTISTA.setLayout(ARTISTALayout);
         ARTISTALayout.setHorizontalGroup(
@@ -170,13 +163,8 @@ public ResultSet consultar(String sql) {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(70, 70, 70))
             .addGroup(ARTISTALayout.createSequentialGroup()
-                .addGroup(ARTISTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ARTISTALayout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(artistaBotonAceptar))
-                    .addGroup(ARTISTALayout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(artistaBotonSeguir)))
+                .addGap(147, 147, 147)
+                .addComponent(artistaBotonAceptar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ARTISTALayout.setVerticalGroup(
@@ -200,11 +188,9 @@ public ResultSet consultar(String sql) {
                 .addGroup(ARTISTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(artistatUrl_foto)
                     .addComponent(artistaUrl_foto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(37, 37, 37)
                 .addComponent(artistaBotonAceptar)
-                .addGap(27, 27, 27)
-                .addComponent(artistaBotonSeguir)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -230,6 +216,8 @@ public ResultSet consultar(String sql) {
     private void artistaUrl_fotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_artistaUrl_fotoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_artistaUrl_fotoActionPerformed
+
+public static artistaActual artista = new artistaActual();
 
     private void artistaBotonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_artistaBotonAceptarActionPerformed
         // TODO add your handling code here:
@@ -279,54 +267,15 @@ public ResultSet consultar(String sql) {
                 dispose();
             
         }catch (Exception e){
-            System.out.println(e.getCause());
-            JOptionPane.showMessageDialog(this,"Nombre y nacionalidad del artista ya existe, porfavor elija la opcion Seguir Artista.");
+            
+            artista.nombre=artistaNombre.getText();
+            artista.nacionalidad=artistaNacionalidad.getText();
+            
+            seguirArtista pSeguirArtista = new seguirArtista();
+            pSeguirArtista.setVisible(true);
         }
         
     }//GEN-LAST:event_artistaBotonAceptarActionPerformed
-
-    private void artistaBotonSeguirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_artistaBotonSeguirActionPerformed
-        // TODO add your handling code here:
-        try{
-            
-            funcionalidad fArtista = new funcionalidad(); 
-            fArtista.conectar(); 
-            pantallaInicio.SesionActual.getLogin();
-            ResultSet idUsuario = fArtista.consultar("select idusuario from usuario where login='"+pantallaInicio.SesionActual.login+"'");
-            idUsuario.next();
-            
-            pantallaInicio.SesionActual.getLogin();
-                        
-            ResultSet idArtista = fArtista.consultar("select idartista from artista where nombre='"+artistaNombre.getText()+"' and nacionalidad='"+artistaNacionalidad.getText()+"'");
-            idArtista.next();
-                        
-            conn = Main.Enlace(conn);
-            String sqlinsertar_sigue = "insert into sigue values (?,?,?,?,?)";
-            PreparedStatement insercion = conn.prepareStatement(sqlinsertar_sigue);
-            insercion.setString(1, null);
-            insercion.setString(2, idUsuario.getString(1));
-            insercion.setString(3, idArtista.getString(1));
-            insercion.setString(4, null);
-            insercion.setString(5, null);
-            insercion.execute();
-            insercion.close();
-            
-            idUsuario.close();
-            idArtista.close();
-            
-            JOptionPane.showMessageDialog(this,"Artista seguido exitosamente!");
-            
-            this.setVisible(false);
-                menuUsuario pMenuUsuario = new menuUsuario();
-                pMenuUsuario.setVisible(true);
-                pMenuUsuario.pack();
-                dispose();
-                
-        }catch (Exception e){
-            System.out.println(e.getCause());
-            JOptionPane.showMessageDialog(this,"Este artista no existe, porfavor elija la opcion Aceptar");
-        }   
-    }//GEN-LAST:event_artistaBotonSeguirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,7 +315,6 @@ public ResultSet consultar(String sql) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ARTISTA;
     private javax.swing.JButton artistaBotonAceptar;
-    private javax.swing.JButton artistaBotonSeguir;
     private javax.swing.JTextField artistaGenero;
     private javax.swing.JTextField artistaNacionalidad;
     private javax.swing.JTextField artistaNombre;
