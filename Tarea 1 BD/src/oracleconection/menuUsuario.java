@@ -144,6 +144,7 @@ public class menuUsuario extends javax.swing.JFrame {
 
     private void menuIngresarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIngresarArtistaActionPerformed
         // TODO add your handling code here:
+        pantallaInicio.SesionActual.getLogin();
         this.setVisible(false);
         pantallaIngresarArtista pIngresarArtista = new pantallaIngresarArtista();
         pIngresarArtista.setVisible(true);

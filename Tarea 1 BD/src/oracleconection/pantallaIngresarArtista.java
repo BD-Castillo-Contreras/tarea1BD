@@ -100,8 +100,6 @@ public ResultSet consultar(String sql) {
         artistaGenero = new javax.swing.JTextField();
         artistaUrl_foto = new javax.swing.JTextField();
         artistaBotonAceptar = new javax.swing.JButton();
-        artistatUsuario = new javax.swing.JLabel();
-        artistaUsuario = new javax.swing.JTextField();
         artistaBotonSeguir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -135,9 +133,6 @@ public ResultSet consultar(String sql) {
             }
         });
 
-        artistatUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        artistatUsuario.setText("Nombre Usuario Logeado:");
-
         artistaBotonSeguir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         artistaBotonSeguir.setText("Seguir Artista");
         artistaBotonSeguir.addActionListener(new java.awt.event.ActionListener() {
@@ -153,15 +148,6 @@ public ResultSet consultar(String sql) {
             .addGroup(ARTISTALayout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addGroup(ARTISTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ARTISTALayout.createSequentialGroup()
-                        .addComponent(artistatUsuario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(artistaUsuario))
-                    .addComponent(artistaTitulo, javax.swing.GroupLayout.Alignment.CENTER)
-                    .addGroup(javax.swing.GroupLayout.Alignment.CENTER, ARTISTALayout.createSequentialGroup()
-                        .addComponent(artistatNombre)
-                        .addGap(51, 51, 51)
-                        .addComponent(artistaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.CENTER, ARTISTALayout.createSequentialGroup()
                         .addComponent(artistatNacionalidad)
                         .addGap(25, 25, 25)
@@ -173,7 +159,15 @@ public ResultSet consultar(String sql) {
                         .addGap(14, 14, 14)
                         .addGroup(ARTISTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(artistaGenero)
-                            .addComponent(artistaUrl_foto))))
+                            .addComponent(artistaUrl_foto)))
+                    .addGroup(ARTISTALayout.createSequentialGroup()
+                        .addGroup(ARTISTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(artistaTitulo, javax.swing.GroupLayout.Alignment.CENTER)
+                            .addGroup(javax.swing.GroupLayout.Alignment.CENTER, ARTISTALayout.createSequentialGroup()
+                                .addComponent(artistatNombre)
+                                .addGap(51, 51, 51)
+                                .addComponent(artistaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(70, 70, 70))
             .addGroup(ARTISTALayout.createSequentialGroup()
                 .addGroup(ARTISTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +175,7 @@ public ResultSet consultar(String sql) {
                         .addGap(147, 147, 147)
                         .addComponent(artistaBotonAceptar))
                     .addGroup(ARTISTALayout.createSequentialGroup()
-                        .addGap(127, 127, 127)
+                        .addGap(130, 130, 130)
                         .addComponent(artistaBotonSeguir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -208,13 +202,9 @@ public ResultSet consultar(String sql) {
                     .addComponent(artistaUrl_foto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(artistaBotonAceptar)
-                .addGap(18, 18, 18)
-                .addGroup(ARTISTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(artistatUsuario)
-                    .addComponent(artistaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(27, 27, 27)
                 .addComponent(artistaBotonSeguir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -301,8 +291,11 @@ public ResultSet consultar(String sql) {
             
             funcionalidad fArtista = new funcionalidad(); 
             fArtista.conectar(); 
-            ResultSet idUsuario = fArtista.consultar("select idusuario from usuario where login='"+artistaUsuario.getText()+"'");
+            pantallaInicio.SesionActual.getLogin();
+            ResultSet idUsuario = fArtista.consultar("select idusuario from usuario where login='"+pantallaInicio.SesionActual.login+"'");
             idUsuario.next();
+            
+            pantallaInicio.SesionActual.getLogin();
                         
             ResultSet idArtista = fArtista.consultar("select idartista from artista where nombre='"+artistaNombre.getText()+"' and nacionalidad='"+artistaNacionalidad.getText()+"'");
             idArtista.next();
@@ -379,11 +372,9 @@ public ResultSet consultar(String sql) {
     private javax.swing.JTextField artistaNombre;
     private javax.swing.JLabel artistaTitulo;
     private javax.swing.JTextField artistaUrl_foto;
-    private javax.swing.JTextField artistaUsuario;
     private javax.swing.JLabel artistatGenero;
     private javax.swing.JLabel artistatNacionalidad;
     private javax.swing.JLabel artistatNombre;
     private javax.swing.JLabel artistatUrl_foto;
-    private javax.swing.JLabel artistatUsuario;
     // End of variables declaration//GEN-END:variables
 }

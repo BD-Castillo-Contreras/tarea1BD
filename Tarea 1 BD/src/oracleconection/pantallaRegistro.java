@@ -9,6 +9,8 @@ package oracleconection;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
+
+
 public class pantallaRegistro extends javax.swing.JFrame {
     
     static Connection conn=null;

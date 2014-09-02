@@ -208,6 +208,7 @@ public ResultSet consultar(String sql) {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public static sesion SesionActual =  new sesion();
 
     private void inicioBotonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioBotonEntrarActionPerformed
         // TODO add your handling code here:
@@ -227,6 +228,9 @@ public ResultSet consultar(String sql) {
                         
                         clave.close();                                                                       
                         JOptionPane.showMessageDialog(this,"Bienvenido "+inicioLogin.getText()+" a la Red Social de Música!");
+                        
+                        SesionActual.login=inicioLogin.getText();
+                        
                         this.setVisible(false);
                         menuUsuario pUsuario = new menuUsuario();
                         pUsuario.setVisible(true);
