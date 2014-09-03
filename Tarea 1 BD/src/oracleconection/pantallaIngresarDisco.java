@@ -100,8 +100,6 @@ public ResultSet consultar(String sql) {
         discoAño = new javax.swing.JTextField();
         discoUrl_foto = new javax.swing.JTextField();
         discoBotonAceptar = new javax.swing.JButton();
-        discotNombreArtista = new javax.swing.JLabel();
-        discoNombreArtista = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,9 +135,6 @@ public ResultSet consultar(String sql) {
             }
         });
 
-        discotNombreArtista.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        discotNombreArtista.setText("Nombre Artista:");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -150,34 +145,27 @@ public ResultSet consultar(String sql) {
                         .addGap(31, 31, 31)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(64, 64, 64)
-                                        .addComponent(discotAño))
-                                    .addComponent(discotUrl_foto))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(discoAño)
-                                    .addComponent(discoUrl_foto)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 29, Short.MAX_VALUE)
-                                .addComponent(discotNombreArtista)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(discoNombreArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(64, 64, 64)
+                                .addComponent(discotAño))
+                            .addComponent(discotUrl_foto))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(discoAño)
+                            .addComponent(discoUrl_foto)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(discotNombre)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(discoNombre)))
                 .addGap(32, 32, 32))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(discoBotonAceptar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(113, Short.MAX_VALUE)
                 .addComponent(discoTitulo)
                 .addGap(105, 105, 105))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(discoBotonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,13 +187,9 @@ public ResultSet consultar(String sql) {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(discotUrl_foto)
                     .addComponent(discoUrl_foto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(discoBotonAceptar)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(discotNombreArtista)
-                    .addComponent(discoNombreArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addComponent(discoBotonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -242,7 +226,7 @@ public ResultSet consultar(String sql) {
                         
             funcionalidad fDisco = new funcionalidad(); 
             fDisco.conectar();
-            ResultSet idArtista = fDisco.consultar("select idartista from artista where nombre='"+discoNombreArtista.getText()+"'");
+            ResultSet idArtista = fDisco.consultar("select idartista from artista where nombre='"+pantallaElegirArtista.artistaSeleccionado.nombre+"'");
             idArtista.next();
                                     
             conn = Main.Enlace(conn);
@@ -255,10 +239,26 @@ public ResultSet consultar(String sql) {
             insercion.setString(5, discoUrl_foto.getText());
             insercion.execute();
             insercion.close();
+
+            ResultSet idDisco = fDisco.consultar("select iddisco from disco where nombre='"+discoNombre.getText()+"' and año='"+discoAño.getText()+"'");
+            idDisco.next();
+            
+            ResultSet idUsuario = fDisco.consultar("select idusuario from usuario where login='"+pantallaInicio.SesionActual.login+"'");
+            idUsuario.next();
+            
+            conn = Main.Enlace(conn);
+            String sqlinsertar_sigue = "insert into sigue values (?,?,?,?,?)";
+            PreparedStatement insercion_sigue = conn.prepareStatement(sqlinsertar_sigue);
+            insercion_sigue.setString(1, null);
+            insercion_sigue.setString(2, idUsuario.getString(1));
+            insercion_sigue.setString(3, null);
+            insercion_sigue.setString(4, idDisco.getString(1));
+            insercion_sigue.setString(5, null);
+            insercion_sigue.execute();
+            insercion_sigue.close();
             
             JOptionPane.showMessageDialog(this,"Disco agregado con exito!");
-            
-            
+                                                
         }catch (Exception e){
             System.out.println(e.getCause());
             JOptionPane.showMessageDialog(this,"El disco ya existe, porfavor correjir nombre y año");
@@ -304,12 +304,10 @@ public ResultSet consultar(String sql) {
     private javax.swing.JTextField discoAño;
     private javax.swing.JButton discoBotonAceptar;
     private javax.swing.JTextField discoNombre;
-    private javax.swing.JTextField discoNombreArtista;
     private javax.swing.JLabel discoTitulo;
     private javax.swing.JTextField discoUrl_foto;
     private javax.swing.JLabel discotAño;
     private javax.swing.JLabel discotNombre;
-    private javax.swing.JLabel discotNombreArtista;
     private javax.swing.JLabel discotUrl_foto;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

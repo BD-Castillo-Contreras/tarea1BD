@@ -6,9 +6,7 @@
 
 package oracleconection;
 
-import java.io.*;
 import java.sql.*;
-import javax.swing.*;
 
 public class Main {
 

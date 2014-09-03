@@ -18,13 +18,13 @@ import javax.swing.JOptionPane;
  *
  * @author JP
  */
-public class pantallaElegirArtista extends javax.swing.JFrame {
+public class pantallaElegirArtistaCaso4 extends javax.swing.JFrame {
     
     static Connection conn=null;
     /**
-     * Creates new form pantallaElegirArtista
+     * Creates new form pantallaElegirArtistaCaso4
      */
-    public pantallaElegirArtista() {
+    public pantallaElegirArtistaCaso4() {
         initComponents();
     }
 
@@ -87,7 +87,7 @@ public ResultSet consultar(String sql) {
     }    
 
 
-private DefaultListModel llenarLista(){
+private DefaultListModel llenarListaCaso4(){
      
     DefaultListModel<String> model = new DefaultListModel<>();
     
@@ -110,14 +110,13 @@ private DefaultListModel llenarLista(){
                                            
             }
             idArtistasSeguidos.close();
-                        
+                                   
         }catch (Exception e){
             System.out.println(e.getCause());
             JOptionPane.showMessageDialog(this,"Problemas con la consulta!");
         }
    return model;
 }
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -127,27 +126,27 @@ private DefaultListModel llenarLista(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        elegirArtistaTitulo = new javax.swing.JLabel();
+        ARTISTASSEGUIDOSCASO4 = new javax.swing.JPanel();
+        artistaTitulo = new javax.swing.JLabel();
         botonMostrarArtistas = new javax.swing.JButton();
         pantallaResultados = new javax.swing.JScrollPane();
-        artistasEncontrados = new javax.swing.JList();
+        artistasEncontradosCaso4 = new javax.swing.JList();
         botonSeleccionarArtista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        elegirArtistaTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        elegirArtistaTitulo.setText("Elegir Artista para ingresar disco:");
+        artistaTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        artistaTitulo.setText("Elegir Artista para elegir un Disco:");
 
         botonMostrarArtistas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        botonMostrarArtistas.setText("Mostrar artistas seguidos");
+        botonMostrarArtistas.setText("Mostrar Artistas Seguidos");
         botonMostrarArtistas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonMostrarArtistasActionPerformed(evt);
             }
         });
 
-        pantallaResultados.setViewportView(artistasEncontrados);
+        pantallaResultados.setViewportView(artistasEncontradosCaso4);
 
         botonSeleccionarArtista.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         botonSeleccionarArtista.setText("Seleccionar Artista");
@@ -157,32 +156,32 @@ private DefaultListModel llenarLista(){
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(botonSeleccionarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(elegirArtistaTitulo)
-                        .addComponent(botonMostrarArtistas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pantallaResultados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)))
-                .addContainerGap(75, Short.MAX_VALUE))
+        javax.swing.GroupLayout ARTISTASSEGUIDOSCASO4Layout = new javax.swing.GroupLayout(ARTISTASSEGUIDOSCASO4);
+        ARTISTASSEGUIDOSCASO4.setLayout(ARTISTASSEGUIDOSCASO4Layout);
+        ARTISTASSEGUIDOSCASO4Layout.setHorizontalGroup(
+            ARTISTASSEGUIDOSCASO4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ARTISTASSEGUIDOSCASO4Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(ARTISTASSEGUIDOSCASO4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botonSeleccionarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(ARTISTASSEGUIDOSCASO4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(pantallaResultados)
+                        .addComponent(botonMostrarArtistas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(artistaTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        ARTISTASSEGUIDOSCASO4Layout.setVerticalGroup(
+            ARTISTASSEGUIDOSCASO4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ARTISTASSEGUIDOSCASO4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(elegirArtistaTitulo)
+                .addComponent(artistaTitulo)
                 .addGap(18, 18, 18)
-                .addComponent(botonMostrarArtistas, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonMostrarArtistas, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pantallaResultados, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                .addComponent(pantallaResultados, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botonSeleccionarArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -190,39 +189,38 @@ private DefaultListModel llenarLista(){
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(ARTISTASSEGUIDOSCASO4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addComponent(ARTISTASSEGUIDOSCASO4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-public static artistaActual artistaSeleccionado = new artistaActual();
+public static artistaActual artistaSeleccionadoCaso4 = new artistaActual();
     
-    private void botonSeleccionarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarArtistaActionPerformed
-        // TODO add your handling code here:
-        artistaSeleccionado.nombre = artistasEncontrados.getSelectedValue().toString();
-        artistaSeleccionado.nacionalidad = null;
-        this.setVisible(false);
-        pantallaIngresarDisco pIngresarDisco = new pantallaIngresarDisco();
-        pIngresarDisco.setVisible(true);
-        pIngresarDisco.pack();
-        dispose();
-    }//GEN-LAST:event_botonSeleccionarArtistaActionPerformed
-
     private void botonMostrarArtistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarArtistasActionPerformed
         // TODO add your handling code here:
-        artistasEncontrados.setModel(llenarLista());
+        artistasEncontradosCaso4.setModel(llenarListaCaso4());
     }//GEN-LAST:event_botonMostrarArtistasActionPerformed
 
+    private void botonSeleccionarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarArtistaActionPerformed
+        // TODO add your handling code here:
+        artistaSeleccionadoCaso4.nombre = artistasEncontradosCaso4.getSelectedValue().toString();
+        artistaSeleccionadoCaso4.nacionalidad = null;
+        this.setVisible(false);
+        pantallaElegirDisco pElegirDisco = new pantallaElegirDisco();
+        pElegirDisco.setVisible(true);
+        pElegirDisco.pack();
+        dispose();
+    }//GEN-LAST:event_botonSeleccionarArtistaActionPerformed
+            
     /**
      * @param args the command line arguments
      */
@@ -240,30 +238,30 @@ public static artistaActual artistaSeleccionado = new artistaActual();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(pantallaElegirArtista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pantallaElegirArtistaCaso4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(pantallaElegirArtista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pantallaElegirArtistaCaso4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(pantallaElegirArtista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pantallaElegirArtistaCaso4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(pantallaElegirArtista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pantallaElegirArtistaCaso4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new pantallaElegirArtista().setVisible(true);
+                new pantallaElegirArtistaCaso4().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList artistasEncontrados;
+    private javax.swing.JPanel ARTISTASSEGUIDOSCASO4;
+    private javax.swing.JLabel artistaTitulo;
+    private javax.swing.JList artistasEncontradosCaso4;
     private javax.swing.JButton botonMostrarArtistas;
     private javax.swing.JButton botonSeleccionarArtista;
-    private javax.swing.JLabel elegirArtistaTitulo;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane pantallaResultados;
     // End of variables declaration//GEN-END:variables
 }
