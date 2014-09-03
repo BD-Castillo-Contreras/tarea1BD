@@ -48,4 +48,17 @@ for each row
 begin
 select iddisco_secuencia.nextval into :new.iddisco from dual;
 end;
-/  
+/
+
+create sequence idcancion_secuencia
+start with 1 
+increment by 1 
+nomaxvalue;
+
+create trigger incrementoidcancion_trigger
+before insert on canción
+for each row
+begin
+select idcancion_secuencia.nextval into :new.idcanción from dual;
+end;
+/
