@@ -5,4 +5,7 @@ ALTER TABLE Artista
 ADD CONSTRAINT nombrenacionalidad_artista UNIQUE (nombre,nacionalidad)
 
 ALTER TABLE Disco
-ADD CONSTRAINT nombrea�o_artista UNIQUE (nombre,a�o)
+ADD CONSTRAINT nombreaño_artista UNIQUE (nombre,año)
+
+ALTER TABLE Canción
+ADD CONSTRAINT nombrenumeroiddisco_canción UNIQUE (disco_iddisco,nombre,numero_pista)
