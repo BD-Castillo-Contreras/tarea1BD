@@ -154,6 +154,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Explorar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuExplorarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="menuRankings">
           <Properties>

@@ -80,6 +80,11 @@ public class menuUsuario extends javax.swing.JFrame {
 
         menuExplorar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         menuExplorar.setText("Explorar");
+        menuExplorar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuExplorarActionPerformed(evt);
+            }
+        });
 
         menuRankings.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         menuRankings.setText("Rankings");
@@ -178,6 +183,15 @@ public class menuUsuario extends javax.swing.JFrame {
         pEditar.pack();
         dispose();
     }//GEN-LAST:event_menuEditarMusicaActionPerformed
+
+    private void menuExplorarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExplorarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        pantallaExplorar pExplorar = new pantallaExplorar();
+        pExplorar.setVisible(true);
+        pExplorar.pack();
+        dispose();
+    }//GEN-LAST:event_menuExplorarActionPerformed
 
     /**
      * @param args the command line arguments
