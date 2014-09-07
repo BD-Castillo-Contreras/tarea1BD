@@ -62,3 +62,16 @@ begin
 select idcancion_secuencia.nextval into :new.idcanción from dual;
 end;
 /
+
+create sequence idlista_secuencia
+start with 1 
+increment by 1 
+nomaxvalue;
+
+create trigger incrementoidlista_trigger
+before insert on lista
+for each row
+begin
+select idlista_secuencia.nextval into :new.idlista from dual;
+end;
+/
