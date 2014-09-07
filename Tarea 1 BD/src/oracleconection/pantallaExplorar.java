@@ -247,6 +247,11 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
 
         botonCrearNuevaLista.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         botonCrearNuevaLista.setText("Crear nueva lista");
+        botonCrearNuevaLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCrearNuevaListaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout EXPLORARLayout = new javax.swing.GroupLayout(EXPLORAR);
         EXPLORAR.setLayout(EXPLORARLayout);
@@ -324,8 +329,8 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(EXPLORAR, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(EXPLORAR, javax.swing.GroupLayout.PREFERRED_SIZE, 569, Short.MAX_VALUE)
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -368,6 +373,15 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
         dispose();
         
     }//GEN-LAST:event_botonSeleccionarUsuarioActionPerformed
+
+    private void botonCrearNuevaListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearNuevaListaActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        pantallaIngresarLista pIngresarLista = new pantallaIngresarLista();
+        pIngresarLista.setVisible(true);
+        pIngresarLista.pack();
+        dispose();
+    }//GEN-LAST:event_botonCrearNuevaListaActionPerformed
 
     /**
      * @param args the command line arguments

@@ -91,7 +91,7 @@ public ResultSet consultar(String sql) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        INGRESARDISCO = new javax.swing.JPanel();
         discoTitulo = new javax.swing.JLabel();
         discotNombre = new javax.swing.JLabel();
         discotAño = new javax.swing.JLabel();
@@ -135,56 +135,56 @@ public ResultSet consultar(String sql) {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout INGRESARDISCOLayout = new javax.swing.GroupLayout(INGRESARDISCO);
+        INGRESARDISCO.setLayout(INGRESARDISCOLayout);
+        INGRESARDISCOLayout.setHorizontalGroup(
+            INGRESARDISCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INGRESARDISCOLayout.createSequentialGroup()
+                .addGroup(INGRESARDISCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, INGRESARDISCOLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(INGRESARDISCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(INGRESARDISCOLayout.createSequentialGroup()
                                 .addGap(64, 64, 64)
                                 .addComponent(discotAño))
                             .addComponent(discotUrl_foto))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(INGRESARDISCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(discoAño)
                             .addComponent(discoUrl_foto)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, INGRESARDISCOLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(discotNombre)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(discoNombre)))
                 .addGap(32, 32, 32))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INGRESARDISCOLayout.createSequentialGroup()
                 .addContainerGap(113, Short.MAX_VALUE)
                 .addComponent(discoTitulo)
                 .addGap(105, 105, 105))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(INGRESARDISCOLayout.createSequentialGroup()
                 .addGap(111, 111, 111)
                 .addComponent(discoBotonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        INGRESARDISCOLayout.setVerticalGroup(
+            INGRESARDISCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(INGRESARDISCOLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(discoTitulo)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(INGRESARDISCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(INGRESARDISCOLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(discoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INGRESARDISCOLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(discotNombre)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(INGRESARDISCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(discotAño)
                     .addComponent(discoAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(INGRESARDISCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(discotUrl_foto)
                     .addComponent(discoUrl_foto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -198,14 +198,14 @@ public ResultSet consultar(String sql) {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(INGRESARDISCO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(INGRESARDISCO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -301,6 +301,7 @@ public ResultSet consultar(String sql) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel INGRESARDISCO;
     private javax.swing.JTextField discoAño;
     private javax.swing.JButton discoBotonAceptar;
     private javax.swing.JTextField discoNombre;
@@ -309,6 +310,5 @@ public ResultSet consultar(String sql) {
     private javax.swing.JLabel discotAño;
     private javax.swing.JLabel discotNombre;
     private javax.swing.JLabel discotUrl_foto;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

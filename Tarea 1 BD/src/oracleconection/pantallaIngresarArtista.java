@@ -25,7 +25,7 @@ public class pantallaIngresarArtista extends javax.swing.JFrame {
         initComponents();
     }
     
-    public class funcionalidad { 
+public class funcionalidad { 
         private Connection conexion; 
 
         public Connection getConexion() { 
@@ -266,7 +266,7 @@ public static artistaActual artista = new artistaActual();
                 pMenuUsuario.pack();
                 dispose();
             
-        }catch (Exception e){
+        }catch (SQLException e){
             
             artista.nombre=artistaNombre.getText();
             artista.nacionalidad=artistaNacionalidad.getText();
