@@ -14,5 +14,8 @@ public class artistaActual {
     
         String nombre;
         String nacionalidad;
+        String genero;
+        String foto;
+        String id;
     
 }

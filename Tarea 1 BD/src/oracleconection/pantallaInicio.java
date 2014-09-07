@@ -229,6 +229,9 @@ public static sesion SesionActual =  new sesion();
                         JOptionPane.showMessageDialog(this,"Bienvenido "+inicioLogin.getText()+" a la Red Social de Música!");
                         
                         SesionActual.login=inicioLogin.getText();
+                        ResultSet id = f.consultar("select idusuario from usuario where login='"+inicioLogin.getText()+"'");
+                        id.next();
+                        SesionActual.id=id.getString(1);
                         
                         this.setVisible(false);
                         menuUsuario pUsuario = new menuUsuario();

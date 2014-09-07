@@ -72,6 +72,11 @@ public class menuUsuario extends javax.swing.JFrame {
 
         menuEditarMusica.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         menuEditarMusica.setText("Editar mi musica");
+        menuEditarMusica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEditarMusicaActionPerformed(evt);
+            }
+        });
 
         menuExplorar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         menuExplorar.setText("Explorar");
@@ -165,6 +170,14 @@ public class menuUsuario extends javax.swing.JFrame {
         pElegirArtistaCaso4.pack();
         dispose();
     }//GEN-LAST:event_menuIngresarCancionesActionPerformed
+
+    private void menuEditarMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditarMusicaActionPerformed
+        this.setVisible(false);
+        pantallaEditar pEditar = new pantallaEditar();
+        pEditar.setVisible(true);
+        pEditar.pack();
+        dispose();
+    }//GEN-LAST:event_menuEditarMusicaActionPerformed
 
     /**
      * @param args the command line arguments

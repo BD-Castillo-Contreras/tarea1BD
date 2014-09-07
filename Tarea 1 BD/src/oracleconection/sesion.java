@@ -12,6 +12,7 @@ package oracleconection;
  */
 public class sesion {
     String login;
+    String id;
 
     public String getLogin() {
         System.out.println("usuario:"+login);
