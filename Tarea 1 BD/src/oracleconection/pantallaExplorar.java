@@ -188,6 +188,7 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
         textoArtistasEncontrados = new javax.swing.JLabel();
         textoUsuariosEncontrados = new javax.swing.JLabel();
         botonSeleccionarUsuario = new javax.swing.JButton();
+        botonCrearNuevaLista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -244,6 +245,9 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
             }
         });
 
+        botonCrearNuevaLista.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        botonCrearNuevaLista.setText("Crear nueva lista");
+
         javax.swing.GroupLayout EXPLORARLayout = new javax.swing.GroupLayout(EXPLORAR);
         EXPLORAR.setLayout(EXPLORARLayout);
         EXPLORARLayout.setHorizontalGroup(
@@ -263,7 +267,9 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
                             .addComponent(botonSeleccionarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(EXPLORARLayout.createSequentialGroup()
                         .addGap(264, 264, 264)
-                        .addComponent(botonMisListas, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(EXPLORARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(botonMisListas, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                            .addComponent(botonCrearNuevaLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EXPLORARLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -300,7 +306,9 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
                     .addComponent(botonSeleccionarUsuario))
                 .addGap(26, 26, 26)
                 .addComponent(botonMisListas)
-                .addGap(93, 93, 93))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonCrearNuevaLista)
+                .addGap(64, 64, 64))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -399,6 +407,7 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel EXPLORAR;
     private javax.swing.JList artistasEncontrados;
+    private javax.swing.JButton botonCrearNuevaLista;
     private javax.swing.JButton botonLoQueSigo;
     private javax.swing.JButton botonMisListas;
     private javax.swing.JButton botonSeleccionarArtista;

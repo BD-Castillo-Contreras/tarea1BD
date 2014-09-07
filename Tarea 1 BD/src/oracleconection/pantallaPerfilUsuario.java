@@ -6,6 +6,7 @@
 
 package oracleconection;
 
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -18,7 +19,8 @@ import javax.swing.JOptionPane;
  * @author JP
  */
 public class pantallaPerfilUsuario extends javax.swing.JFrame {
-
+    
+    static Connection conn=null;
     /**
      * Creates new form pantallaPerfilUsuario
      */
@@ -157,7 +159,36 @@ public String FotoUsuario(String nombre){
     }
     return Resultado;
 }
+
+private DefaultListModel llenarListaArtistasSeguidos(){
+     
+    DefaultListModel<String> model = new DefaultListModel<>();
     
+    try {
+                                
+            funcionalidad fUsuario = new funcionalidad();
+            fUsuario.conectar(); 
+            ResultSet idUsuario = fUsuario.consultar("select idusuario from usuario where nombre='"+pantallaExplorar.usuarioSeleccionadoExplorar.nombre+"'");
+            idUsuario.next();
+            
+            ResultSet idArtistasSeguidos = fUsuario.consultar("select artista_idartista from sigue where usuario_idusuario='"+idUsuario.getString(1)+"'");
+            idUsuario.close();
+            
+            while(idArtistasSeguidos.next()){
+                
+                ResultSet nombreArtista = fUsuario.consultar("select nombre from artista where idartista='"+idArtistasSeguidos.getString(1)+"'");
+                nombreArtista.next();
+                model.addElement(nombreArtista.getString(1));
+                nombreArtista.close();
+                                           
+            }
+            idArtistasSeguidos.close();
+                        
+        }catch (Exception e){
+            System.out.println(e.getCause());            
+        }
+   return model;
+}
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -185,6 +216,10 @@ public String FotoUsuario(String nombre){
         textoDatosNacionalidad = new javax.swing.JLabel();
         String foto = FotoUsuario(pantallaExplorar.usuarioSeleccionadoExplorar.nombre);
         textoDatosFoto = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        artistasEncontrados = new javax.swing.JList();
+        botonMostrarArtistas = new javax.swing.JButton();
+        botonSeguirArtistaSeleccionado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -221,6 +256,24 @@ public String FotoUsuario(String nombre){
         textoDatosFoto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         textoDatosFoto.setText(foto);
 
+        jScrollPane1.setViewportView(artistasEncontrados);
+
+        botonMostrarArtistas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botonMostrarArtistas.setText("Ver artistas seguidos");
+        botonMostrarArtistas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonMostrarArtistasActionPerformed(evt);
+            }
+        });
+
+        botonSeguirArtistaSeleccionado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botonSeguirArtistaSeleccionado.setText("Seguir Artista");
+        botonSeguirArtistaSeleccionado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSeguirArtistaSeleccionadoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PERFILUSUARIOLayout = new javax.swing.GroupLayout(PERFILUSUARIO);
         PERFILUSUARIO.setLayout(PERFILUSUARIOLayout);
         PERFILUSUARIOLayout.setHorizontalGroup(
@@ -250,8 +303,14 @@ public String FotoUsuario(String nombre){
                                 .addGap(18, 18, 18)
                                 .addGroup(PERFILUSUARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(textoDatosFoto)
-                                    .addComponent(textoDatosNacionalidad))))))
-                .addContainerGap(135, Short.MAX_VALUE))
+                                    .addComponent(textoDatosNacionalidad)))))
+                    .addGroup(PERFILUSUARIOLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addGroup(PERFILUSUARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(botonMostrarArtistas, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(botonSeguirArtistaSeleccionado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         PERFILUSUARIOLayout.setVerticalGroup(
             PERFILUSUARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,7 +337,13 @@ public String FotoUsuario(String nombre){
                 .addGroup(PERFILUSUARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textoFoto)
                     .addComponent(textoDatosFoto))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botonMostrarArtistas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonSeguirArtistaSeleccionado)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -300,6 +365,47 @@ public String FotoUsuario(String nombre){
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonMostrarArtistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarArtistasActionPerformed
+        // TODO add your handling code here:
+        artistasEncontrados.setModel(llenarListaArtistasSeguidos());
+    }//GEN-LAST:event_botonMostrarArtistasActionPerformed
+
+    private void botonSeguirArtistaSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeguirArtistaSeleccionadoActionPerformed
+        // TODO add your handling code here:
+        try{
+            
+            conn = Main.Enlace(conn);
+            
+            funcionalidad fArtista = new funcionalidad(); 
+            fArtista.conectar(); 
+            ResultSet idUsuario = fArtista.consultar("select idusuario from usuario where login='"+pantallaInicio.SesionActual.login+"'");
+            idUsuario.next();
+            
+            
+            ResultSet idArtista = fArtista.consultar("select idartista from artista where nombre='"+artistasEncontrados.getSelectedValue().toString()+"'");
+            idArtista.next();
+            
+            
+            String sqlinsertar_sigue = "insert into sigue values (?,?,?,?,?)";
+            PreparedStatement insercion = conn.prepareStatement(sqlinsertar_sigue);
+            insercion.setString(1, null);
+            insercion.setString(2, idUsuario.getString(1));
+            insercion.setString(3, idArtista.getString(1));
+            insercion.setString(4, null);
+            insercion.setString(5, null);
+            insercion.execute();
+            insercion.close();
+            
+            idUsuario.close();
+            idArtista.close();
+            
+            JOptionPane.showMessageDialog(this,"Artista seguido!");
+        }catch(SQLException  e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this,"Ya sigue a este Artista!");
+        }
+    }//GEN-LAST:event_botonSeguirArtistaSeleccionadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -338,6 +444,10 @@ public String FotoUsuario(String nombre){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PERFILUSUARIO;
+    private javax.swing.JList artistasEncontrados;
+    private javax.swing.JButton botonMostrarArtistas;
+    private javax.swing.JButton botonSeguirArtistaSeleccionado;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel textoApellidos;
     private javax.swing.JLabel textoDatosApellidos;
     private javax.swing.JLabel textoDatosEdad;
