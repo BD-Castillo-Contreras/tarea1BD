@@ -131,6 +131,7 @@ private DefaultListModel llenarListaDisco(){
         pantallaResultados = new javax.swing.JScrollPane();
         resultadosDiscos = new javax.swing.JList();
         botonSeleccionarDisco = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -155,17 +156,29 @@ private DefaultListModel llenarListaDisco(){
             }
         });
 
+        jButton1.setText("Volver");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ELEGIRDISCOLayout = new javax.swing.GroupLayout(ELEGIRDISCO);
         ELEGIRDISCO.setLayout(ELEGIRDISCOLayout);
         ELEGIRDISCOLayout.setHorizontalGroup(
             ELEGIRDISCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ELEGIRDISCOLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(ELEGIRDISCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botonSeleccionarDisco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pantallaResultados)
-                    .addComponent(botonMostrarDiscos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(elegirDisco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(ELEGIRDISCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ELEGIRDISCOLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(ELEGIRDISCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(botonSeleccionarDisco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pantallaResultados)
+                            .addComponent(botonMostrarDiscos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(elegirDisco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(ELEGIRDISCOLayout.createSequentialGroup()
+                        .addGap(189, 189, 189)
+                        .addComponent(jButton1)))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
         ELEGIRDISCOLayout.setVerticalGroup(
@@ -179,7 +192,9 @@ private DefaultListModel llenarListaDisco(){
                 .addComponent(pantallaResultados, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botonSeleccionarDisco, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -219,6 +234,14 @@ public static discoActual discoSeleccionado = new discoActual();
         pIngresarCancion.pack();
         dispose();
     }//GEN-LAST:event_botonSeleccionarDiscoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       this.setVisible(false);
+        menuUsuario pIngresarCancion = new menuUsuario();
+        pIngresarCancion.setVisible(true);
+        pIngresarCancion.pack();
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,6 +283,7 @@ public static discoActual discoSeleccionado = new discoActual();
     private javax.swing.JButton botonMostrarDiscos;
     private javax.swing.JButton botonSeleccionarDisco;
     private javax.swing.JLabel elegirDisco;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane pantallaResultados;
     private javax.swing.JList resultadosDiscos;
     // End of variables declaration//GEN-END:variables

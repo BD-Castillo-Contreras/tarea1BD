@@ -243,6 +243,7 @@ public String FotoDisco(String disco){
         botonInformacionDisco = new javax.swing.JButton();
         botonSeguirArtista = new javax.swing.JButton();
         botonDiscos = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -299,6 +300,13 @@ public String FotoDisco(String disco){
             }
         });
 
+        jButton1.setText("Volver");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PERFILARTISTALayout = new javax.swing.GroupLayout(PERFILARTISTA);
         PERFILARTISTA.setLayout(PERFILARTISTALayout);
         PERFILARTISTALayout.setHorizontalGroup(
@@ -331,7 +339,10 @@ public String FotoDisco(String disco){
                                 .addComponent(pantallaResultados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
                     .addGroup(PERFILARTISTALayout.createSequentialGroup()
                         .addGap(109, 109, 109)
-                        .addComponent(textoTitulo)))
+                        .addComponent(textoTitulo))
+                    .addGroup(PERFILARTISTALayout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(jButton1)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         PERFILARTISTALayout.setVerticalGroup(
@@ -363,7 +374,9 @@ public String FotoDisco(String disco){
                 .addComponent(botonInformacionDisco)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonSeguirArtista)
-                .addGap(57, 57, 57))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -433,6 +446,14 @@ public String FotoDisco(String disco){
         resultadosDiscos.setModel(llenarListaDiscosArtista());
     }//GEN-LAST:event_botonDiscosActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        pantallaExplorar pUsuario = new pantallaExplorar();
+        pUsuario.setVisible(true);
+        pUsuario.pack();
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -473,6 +494,7 @@ public String FotoDisco(String disco){
     private javax.swing.JButton botonDiscos;
     private javax.swing.JButton botonInformacionDisco;
     private javax.swing.JButton botonSeguirArtista;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane pantallaResultados;
     private javax.swing.JList resultadosDiscos;
     private javax.swing.JLabel textoDatosGenero;

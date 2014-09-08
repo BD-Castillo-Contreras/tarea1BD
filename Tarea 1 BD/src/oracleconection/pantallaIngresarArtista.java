@@ -102,6 +102,7 @@ public ResultSet consultar(String sql) {
         artistaGenero = new javax.swing.JTextField();
         artistaUrl_foto = new javax.swing.JTextField();
         artistaBotonAceptar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,6 +132,13 @@ public ResultSet consultar(String sql) {
         artistaBotonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 artistaBotonAceptarActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Volver");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -164,7 +172,9 @@ public ResultSet consultar(String sql) {
                 .addGap(70, 70, 70))
             .addGroup(ARTISTALayout.createSequentialGroup()
                 .addGap(147, 147, 147)
-                .addComponent(artistaBotonAceptar)
+                .addGroup(ARTISTALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(artistaBotonAceptar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ARTISTALayout.setVerticalGroup(
@@ -190,7 +200,9 @@ public ResultSet consultar(String sql) {
                     .addComponent(artistaUrl_foto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addComponent(artistaBotonAceptar)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -277,6 +289,14 @@ public static artistaActual artista = new artistaActual();
         
     }//GEN-LAST:event_artistaBotonAceptarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        menuUsuario pUsuario = new menuUsuario();
+        pUsuario.setVisible(true);
+        pUsuario.pack();
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -324,5 +344,6 @@ public static artistaActual artista = new artistaActual();
     private javax.swing.JLabel artistatNacionalidad;
     private javax.swing.JLabel artistatNombre;
     private javax.swing.JLabel artistatUrl_foto;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

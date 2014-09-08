@@ -37,6 +37,7 @@ public class menuUsuario extends javax.swing.JFrame {
         menuEditarMusica = new javax.swing.JButton();
         menuExplorar = new javax.swing.JButton();
         menuRankings = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +90,13 @@ public class menuUsuario extends javax.swing.JFrame {
         menuRankings.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         menuRankings.setText("Rankings");
 
+        jButton1.setText("Cerrar Sesion");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MENÚLayout = new javax.swing.GroupLayout(MENÚ);
         MENÚ.setLayout(MENÚLayout);
         MENÚLayout.setHorizontalGroup(
@@ -103,7 +111,8 @@ public class menuUsuario extends javax.swing.JFrame {
                     .addComponent(menuIngresarCanciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(menuEditarMusica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(menuExplorar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menuRankings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(menuRankings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
         MENÚLayout.setVerticalGroup(
@@ -125,7 +134,9 @@ public class menuUsuario extends javax.swing.JFrame {
                 .addComponent(menuExplorar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(menuRankings)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -193,6 +204,14 @@ public class menuUsuario extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_menuExplorarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        pantallaInicio pUsuario = new pantallaInicio();
+        pUsuario.setVisible(true);
+        pUsuario.pack();
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -230,6 +249,7 @@ public class menuUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MENÚ;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton menuEditarMusica;
     private javax.swing.JButton menuExplorar;
     private javax.swing.JButton menuIngresarArtista;

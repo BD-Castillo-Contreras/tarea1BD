@@ -189,6 +189,7 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
         textoUsuariosEncontrados = new javax.swing.JLabel();
         botonSeleccionarUsuario = new javax.swing.JButton();
         botonCrearNuevaLista = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -253,6 +254,13 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
             }
         });
 
+        jButton1.setText("Volver");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout EXPLORARLayout = new javax.swing.GroupLayout(EXPLORAR);
         EXPLORAR.setLayout(EXPLORARLayout);
         EXPLORARLayout.setHorizontalGroup(
@@ -277,7 +285,7 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
                             .addComponent(botonCrearNuevaLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EXPLORARLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(108, Short.MAX_VALUE)
                 .addGroup(EXPLORARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EXPLORARLayout.createSequentialGroup()
                         .addComponent(textoArtistasEncontrados)
@@ -287,6 +295,10 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EXPLORARLayout.createSequentialGroup()
                         .addComponent(textoExplorarTitulo)
                         .addGap(262, 262, 262))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EXPLORARLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(328, 328, 328))
         );
         EXPLORARLayout.setVerticalGroup(
             EXPLORARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,7 +325,9 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
                 .addComponent(botonMisListas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botonCrearNuevaLista)
-                .addGap(64, 64, 64))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addGap(33, 33, 33))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -329,8 +343,7 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(EXPLORAR, javax.swing.GroupLayout.PREFERRED_SIZE, 569, Short.MAX_VALUE)
-                .addGap(33, 33, 33))
+                .addComponent(EXPLORAR, javax.swing.GroupLayout.PREFERRED_SIZE, 602, Short.MAX_VALUE))
         );
 
         pack();
@@ -383,6 +396,14 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
         dispose();
     }//GEN-LAST:event_botonCrearNuevaListaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        menuUsuario pUsuario = new menuUsuario();
+        pUsuario.setVisible(true);
+        pUsuario.pack();
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -427,6 +448,7 @@ private DefaultListModel llenarListaTodosLosUsuarios(){
     private javax.swing.JButton botonSeleccionarArtista;
     private javax.swing.JButton botonSeleccionarUsuario;
     private javax.swing.JButton botonTodo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane pantallaResultadosArtistas;
     private javax.swing.JScrollPane pantallaResultadosUsuarios;
     private javax.swing.JLabel textoArtistasEncontrados;

@@ -100,6 +100,7 @@ public ResultSet consultar(String sql) {
         discoAño = new javax.swing.JTextField();
         discoUrl_foto = new javax.swing.JTextField();
         discoBotonAceptar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -135,6 +136,13 @@ public ResultSet consultar(String sql) {
             }
         });
 
+        jButton1.setText("Volver");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout INGRESARDISCOLayout = new javax.swing.GroupLayout(INGRESARDISCO);
         INGRESARDISCO.setLayout(INGRESARDISCOLayout);
         INGRESARDISCOLayout.setHorizontalGroup(
@@ -158,14 +166,19 @@ public ResultSet consultar(String sql) {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(discoNombre)))
                 .addGap(32, 32, 32))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INGRESARDISCOLayout.createSequentialGroup()
-                .addContainerGap(113, Short.MAX_VALUE)
-                .addComponent(discoTitulo)
-                .addGap(105, 105, 105))
             .addGroup(INGRESARDISCOLayout.createSequentialGroup()
                 .addGap(111, 111, 111)
                 .addComponent(discoBotonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INGRESARDISCOLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(INGRESARDISCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INGRESARDISCOLayout.createSequentialGroup()
+                        .addComponent(discoTitulo)
+                        .addGap(105, 105, 105))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INGRESARDISCOLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(132, 132, 132))))
         );
         INGRESARDISCOLayout.setVerticalGroup(
             INGRESARDISCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +202,9 @@ public ResultSet consultar(String sql) {
                     .addComponent(discoUrl_foto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(discoBotonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -258,12 +273,25 @@ public ResultSet consultar(String sql) {
             insercion_sigue.close();
             
             JOptionPane.showMessageDialog(this,"Disco agregado con exito!");
+            this.setVisible(false);
+            menuUsuario pUsuario = new menuUsuario();
+            pUsuario.setVisible(true);
+            pUsuario.pack();
+            dispose();
                                                 
         }catch (Exception e){
             System.out.println(e.getCause());
             JOptionPane.showMessageDialog(this,"El disco ya existe, porfavor correjir nombre y año");
         }
     }//GEN-LAST:event_discoBotonAceptarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        pantallaElegirArtista pIngresarCancion = new pantallaElegirArtista();
+        pIngresarCancion.setVisible(true);
+        pIngresarCancion.pack();
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -310,5 +338,6 @@ public ResultSet consultar(String sql) {
     private javax.swing.JLabel discotAño;
     private javax.swing.JLabel discotNombre;
     private javax.swing.JLabel discotUrl_foto;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
