@@ -176,7 +176,8 @@ public ResultSet consultar(String sql) {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+public static listaActual nombreLista = new listaActual();
+    
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
         // TODO add your handling code here:
         try {
@@ -214,7 +215,9 @@ public ResultSet consultar(String sql) {
             idLista.close();
             
             JOptionPane.showMessageDialog(this,"Lista ingresada exitosamente!");
-                       
+            
+            nombreLista.nombre = textoNombre.getText();
+            
                 this.setVisible(false);
                 pantallaElegirDiscoCaso7 pElegirDiscoCaso7 = new pantallaElegirDiscoCaso7();
                 pElegirDiscoCaso7.setVisible(true);

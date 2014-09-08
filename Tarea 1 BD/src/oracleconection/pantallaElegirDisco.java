@@ -110,7 +110,7 @@ private DefaultListModel llenarListaDisco(){
             }
             idDiscoArtista.close();
                                    
-        }catch (Exception e){
+        }catch (SQLException e){
             System.out.println(e.getCause());
             JOptionPane.showMessageDialog(this,"El artista no tiene discos!");
         }

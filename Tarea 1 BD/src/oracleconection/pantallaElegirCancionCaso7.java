@@ -152,12 +152,27 @@ private DefaultListModel llenarListaCanciones(){
 
         botonAgregarCancionSeleccionada.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         botonAgregarCancionSeleccionada.setText("Agregar cancion seleccionada a la lista");
+        botonAgregarCancionSeleccionada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarCancionSeleccionadaActionPerformed(evt);
+            }
+        });
 
         botonVolverPantallaDisco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         botonVolverPantallaDisco.setText("Volver a elegir otro Disco");
+        botonVolverPantallaDisco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVolverPantallaDiscoActionPerformed(evt);
+            }
+        });
 
         botonVolverMenu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         botonVolverMenu.setText("Volver al Menu");
+        botonVolverMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVolverMenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ELEGIRCANCIONLayout = new javax.swing.GroupLayout(ELEGIRCANCION);
         ELEGIRCANCION.setLayout(ELEGIRCANCIONLayout);
@@ -219,6 +234,54 @@ private DefaultListModel llenarListaCanciones(){
         // TODO add your handling code here:
         resultadosCanciones.setModel(llenarListaCanciones());
     }//GEN-LAST:event_botonMostrarCancionesDiscoActionPerformed
+
+    private void botonVolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverMenuActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        menuUsuario pUsuario = new menuUsuario();
+        pUsuario.setVisible(true);
+        pUsuario.pack();
+        dispose();
+    }//GEN-LAST:event_botonVolverMenuActionPerformed
+
+    private void botonVolverPantallaDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverPantallaDiscoActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        pantallaElegirDiscoCaso7 pElegirDiscoCaso7 = new pantallaElegirDiscoCaso7();
+        pElegirDiscoCaso7.setVisible(true);
+        pElegirDiscoCaso7.pack();
+        dispose();
+    }//GEN-LAST:event_botonVolverPantallaDiscoActionPerformed
+
+    private void botonAgregarCancionSeleccionadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarCancionSeleccionadaActionPerformed
+        // TODO add your handling code here:
+        try{
+            
+            funcionalidad fLista = new funcionalidad(); 
+            fLista.conectar();
+            ResultSet idLista = fLista.consultar("select idlista from lista where nombre='"+pantallaIngresarLista.nombreLista.nombre+"'");
+            idLista.next();
+            
+            ResultSet idCancion = fLista.consultar("select idCanción from canción where nombre='"+resultadosCanciones.getSelectedValue().toString()+"'");
+            idCancion.next();
+            
+            String sqlinsertar_sigue = "insert into listacanción values (?,?,?)";
+            PreparedStatement insercion = conn.prepareStatement(sqlinsertar_sigue);
+            insercion.setString(1, null);
+            insercion.setString(2, idCancion.getString(1));
+            insercion.setString(3, idLista.getString(1));
+            insercion.execute();
+            insercion.close();
+            
+            idLista.close();
+            idCancion.close();
+            
+        }catch(SQLException e){
+            System.out.println(e.getCause());
+            JOptionPane.showMessageDialog(this,"Problemas con ingresar la Canción a la lista");
+        }
+       
+    }//GEN-LAST:event_botonAgregarCancionSeleccionadaActionPerformed
 
     /**
      * @param args the command line arguments

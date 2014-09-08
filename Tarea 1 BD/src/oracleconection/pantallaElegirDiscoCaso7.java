@@ -98,7 +98,7 @@ private DefaultListModel llenarListaDisco(){
             idUsuario.next();
             
             ResultSet artista_idArtista = fDisco.consultar("select artista_idartista from sigue where usuario_idusuario='"+idUsuario.getString(1)+"'");
-            idUsuario.close();             
+            
             
             while(artista_idArtista.next()){
                 
@@ -108,7 +108,9 @@ private DefaultListModel llenarListaDisco(){
                 nombreDisco.close();
                 
             }
-            artista_idArtista.close();            
+            artista_idArtista.close();
+            idUsuario.close();
+            
             JOptionPane.showMessageDialog(this,"Discos encontrados!");
                                    
         }catch (SQLException e){
